@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Analítico Responsivo - Gestão Eduardo Moita | CRP-21ª (2015-2019)</title>
+    <title>Dashboard Analítico Completo - Gestão Eduardo Moita | CRP-21ª</title>
     <style>
         * {
             margin: 0;
@@ -231,7 +231,7 @@
             margin-bottom: 10px;
         }
 
-        .insight-card p {
+        .insight-card p, .insight-card li {
             color: var(--gray-700);
             font-size: 0.95rem;
             line-height: 1.7;
@@ -704,6 +704,60 @@
             color: var(--primary-blue);
             font-size: 1.1rem;
         }
+        
+        /* New Styles for Detailed Analysis Section */
+        #analise-detalhada .analysis-subsection {
+            background-color: var(--white);
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        #analise-detalhada .analysis-subsection h4 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
+        #analise-detalhada .analysis-subsection ul {
+            list-style-position: inside;
+            padding-left: 10px;
+        }
+
+        #analise-detalhada .analysis-subsection li {
+            margin-bottom: 10px;
+            color: var(--gray-700);
+        }
+
+        #analise-detalhada .intro-card {
+            background: var(--light-blue);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-blue);
+            font-style: italic;
+            color: var(--gray-800);
+        }
+        
+        #analise-detalhada .year-card {
+             background-color: var(--white);
+             padding: 20px;
+             border-radius: 8px;
+             border-left: 4px solid var(--primary-green);
+             box-shadow: var(--shadow);
+             margin-bottom: 15px;
+        }
+        
+        #analise-detalhada .year-card .year-title {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
 
         /* Footer */
         footer {
@@ -732,7 +786,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .stat-card, .event-card, .achievement-card, .insight-card {
+        .stat-card, .event-card, .achievement-card, .insight-card, .analysis-subsection {
             animation: fadeIn 0.6s ease-out;
         }
 
@@ -754,7 +808,6 @@
             }
 
             .charts-section {
-                /* Change from auto-fit to a single column earlier to prevent squishing */
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
@@ -795,7 +848,6 @@
             }
             
             .stats-grid {
-                /* Use 2 columns for tablets */
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -807,7 +859,6 @@
         /* For mobile phones */
         @media (max-width: 768px) {
             body {
-                /* Slightly smaller base font size on mobile for better text flow */
                 font-size: 95%; 
             }
 
@@ -823,7 +874,6 @@
             .insights-grid,
             .achievements-grid,
             .financial-grid {
-                /* All grids collapse to a single column on mobile */
                 grid-template-columns: 1fr;
             }
 
@@ -839,7 +889,7 @@
                 left: -27px;
             }
 
-            .timeline-section, .chart-card, .insights-section {
+            .timeline-section, .chart-card, .insights-section, #analise-detalhada .analysis-subsection {
                 padding: 25px;
             }
 
@@ -856,11 +906,11 @@
             .nav-links {
                 justify-content: flex-start;
                 padding-bottom: 5px;
-                scrollbar-width: none; /* Hide scrollbar but keep functionality */
+                scrollbar-width: none;
             }
             
             .nav-links::-webkit-scrollbar {
-                display: none; /* Hide scrollbar for Safari/Chrome */
+                display: none;
             }
 
             .nav-link {
@@ -875,7 +925,7 @@
                 padding: 0 15px;
             }
 
-            .stat-card, .event-card, .financial-card, .achievement-card, .insight-card {
+            .stat-card, .event-card, .financial-card, .achievement-card, .insight-card, #analise-detalhada .analysis-subsection {
                 padding: 20px;
             }
             
@@ -929,6 +979,7 @@
                 <a href="#linha-tempo" class="nav-link">Linha do Tempo</a>
                 <a href="#financeiro" class="nav-link">Análise Financeira</a>
                 <a href="#conquistas" class="nav-link">Legados</a>
+                <a href="#analise-detalhada" class="nav-link">Análise Detalhada</a>
             </div>
         </div>
     </nav>
@@ -1225,6 +1276,113 @@
                     </div>
                 </div>
             </section>
+            
+            <section id="analise-detalhada">
+                <h2 class="section-title">📄 Análise Detalhada da Gestão e Finanças</h2>
+
+                <div class="intro-card">
+                    <p>Olá! Como seu consultor, estou aqui para auxiliá-lo a analisar e compreender rapidamente as informações para subsidiar suas recomendações estratégicas à alta liderança. Meu papel é navegar por considerações técnicas, regulatórias e financeiras nos documentos que você forneceu. O conjunto de conhecimentos que me foi disponibilizado inclui relatórios de gestão detalhados e demonstrativos financeiros do Conselho Regional de Psicologia da 21ª Região (CRP-21ª), abrangendo o período de 2015 a 2023.</p>
+                </div>
+                
+                <div class="analysis-subsection">
+                    <h3 class="chart-title">Evolução da Receita Arrecadada e Crescimento Percentual Anual (2015-2023)</h3>
+                    <p>A receita do CRP-21ª é composta principalmente pelas anuidades de pessoas físicas e jurídicas, além de taxas de serviços (inscrições, emissão de carteiras) e multas/juros por atrasos. A seguir, detalho a evolução da receita arrecadada pelo CRP-21ª e o crescimento percentual anual, com base nos dados disponíveis:</p>
+                    
+                    <div class="mt-20">
+                        <div class="year-card">
+                            <p class="year-title">2015</p>
+                            <p>A receita orçamentária arrecadada foi de <strong>R$ 856.641,46</strong>. Este valor representou um crescimento de <strong>58,9%</strong> em relação ao exercício de 2014, o que denota um bom equilíbrio financeiro e responsabilidade fiscal da gestão.</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2016</p>
+                            <p>O CRP-21ª arrecadou <strong>R$ 1.142.303,91</strong> em receitas correntes. Isso representou um crescimento de <strong>33%</strong> em relação a 2015. Apesar do crescimento geral, houve uma "frustração no desempenho da arrecadação" de anuidades de pessoas físicas, resultando em um déficit de R$ 461.635,92 nesse item.</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2017</p>
+                            <p>A receita arrecadada foi de <strong>R$ 1.198.752,66</strong>, um incremento de <strong>5%</strong> em relação a 2016. A "frustração no desempenho da arrecadação" persistiu, totalizando R$ -866.429,93, principalmente devido à não arrecadação de anuidades de pessoas físicas do exercício (-R$ 520.825,39) e de receitas de capital (-R$ 426.285,76).</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2018</p>
+                            <p>A arrecadação de receitas correntes aumentou para <strong>R$ 1.350.083,50</strong>, um aumento de <strong>13%</strong> em relação a 2017. Contudo, a "frustração no desempenho da arrecadação" continuou, em R$ (1.010.734,00), novamente atribuída principalmente ao não recebimento de anuidades de pessoas físicas do exercício.</p>
+                        </div>
+                         <div class="year-card">
+                            <p class="year-title">2019</p>
+                            <p>As fontes não fornecem o valor total explícito da receita, mas o Conselho apresentou um notável superávit financeiro de <strong>R$ 1.904.761,69</strong>. Isso foi resultado de economia na execução de despesas e receita de caixa superior às despesas. A inadimplência para 2019 foi de <strong>12,80%</strong> (R$ 175.443,50).</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2020</p>
+                            <p>A arrecadação foi de <strong>R$ 1.909.859,82</strong>. A pandemia de COVID-19 impactou o planejamento, mas as despesas também foram menores, mantendo o equilíbrio orçamentário e financeiro.</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2021</p>
+                            <p>As fontes não fornecem o valor total explícito da receita. O ano terminou com um pequeno superávit financeiro, e as contas foram mantidas equilibradas apesar da alta inflação. A inadimplência em 2021 foi de <strong>39%</strong> do total de anuidades vencidas.</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2022</p>
+                            <p>As fontes não fornecem o valor total explícito da receita. A arrecadação ficou abaixo do orçado, exigindo uso do superávit de exercícios anteriores. O superávit financeiro para este ano foi de <strong>R$ 38.757,04</strong>. Desafios com a troca de sistema financeiro causaram atrasos.</p>
+                        </div>
+                        <div class="year-card">
+                            <p class="year-title">2023</p>
+                            <p>A arrecadação total foi de <strong>R$ 1.950.346,46</strong> (70% da meta). A inadimplência total acumulada de 2013 a 2023 foi de <strong>R$ 2.516.470,77</strong> (14,74% do total a receber).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-subsection">
+                    <h3 class="chart-title" style="color: var(--primary-red);">Desafios da Inadimplência</h3>
+                     <div class="insight-card" style="border-left-color: var(--primary-red);">
+                        <ul>
+                            <li>Em 2016, 2017 e 2018, houve "frustração no desempenho da arrecadação" de anuidades de pessoas físicas, contribuindo para déficits em metas de arrecadação.</li>
+                            <li>Em 2019, a inadimplência foi de <strong>12,80%</strong>, representando R$ 175.443,50. O setor financeiro e a assessoria jurídica iniciaram a execução fiscal de 79 profissionais inadimplentes neste ano.</li>
+                            <li>Em 2021, a inadimplência foi de <strong>39%</strong> do total de anuidades vencidas.</li>
+                            <li>Em 2023, a inadimplência total acumulada de 2013 a 2023 foi de <strong>R$ 2.516.470,77</strong>, correspondendo a 14,74% do total de anuidades a receber.</li>
+                        </ul>
+                        <p class="mt-20"><strong>Estratégia de Cobrança:</strong> Para combater a inadimplência, o conselho tem utilizado ferramentas como e-mail, telemarketing e WhatsApp para negociações, buscando esgotar tentativas amigáveis antes da judicialização.</p>
+                        <p class="mt-20"><strong>Recomendação:</strong> Para uma análise mais aprofundada, sugiro investigar as causas subjacentes à persistência da alta inadimplência, como fatores econômicos ou a eficácia das estratégias de comunicação e negociação.</p>
+                    </div>
+                </div>
+
+                <div class="analysis-subsection">
+                    <h3 class="chart-title">Análise da Gestão Eduardo Moita</h3>
+                    <p>A gestão de Eduardo Jasson Loureiro Muniz Moita à frente do Conselho Regional de Psicologia da 21ª Região (CRP-21ª) foi um período de consolidação e iniciação de importantes avanços para a psicologia no Piauí. Ele teve uma presença contínua e influente no CRP-21ª desde os primeiros anos de sua criação.</p>
+                    <div class="achievement-metric" style="margin-top:20px;">
+                        <div class="metric-label">Períodos de Atuação:</div>
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li><strong>Conselheiro Vice-Presidente:</strong> 27/09/2013 a 09/02/2015</li>
+                            <li><strong>Presidente (1º mandato):</strong> 09/02/2015 a 01/05/2016</li>
+                            <li><strong>Conselheiro Presidente (2º mandato – II Plenário):</strong> 24/09/2016 a 26/09/2019</li>
+                        </ul>
+                    </div>
+                    <p class="mt-20">Seu impacto é frequentemente comparado ao de um "capitão que, navegando em águas turbulentas, conseguiu não apenas manter o navio à tona, mas também equipá-lo" ou a um "jardineiro que não apenas cuida das plantas já existentes, mas também prepara o solo e planta novas sementes".</p>
+
+                    <h4>Análise Temporal da Gestão (2015-2019)</h4>
+                    <ul>
+                        <li><strong>2015-2016 (Início):</strong> Demonstrou superávit financeiro de R$ 37.627,20 em 2015, com crescimento de 58,9% na receita. Iniciou a modernização com a digitalização de documentos e lançou edital para concurso público. Realizou o II COREP e engajou-se com IES e em pautas de direitos humanos (Comitê de Combate à Tortura).</li>
+                        <li><strong>2017 (Consolidação):</strong> Intensificou a luta pela Jornada de 30 Horas. Coordenou o Fórum dos Conselhos Regionais, fortalecendo o peso político do CRP-21ª. Manteve a saúde financeira com superávit, apesar da persistente frustração na arrecadação.</li>
+                        <li><strong>2018 (Expansão):</strong> Lançou o "Conselho Itinerante", descentralizando serviços para o interior (Floriano e Parnaíba). Contratou 4 concursados, reforçando o quadro técnico. Atuou ativamente na defesa da Psicologia do Trânsito.</li>
+                        <li><strong>2019 (Legado):</strong> Culminou a gestão com um superávit financeiro recorde de R$ 1.904.761,69. Foi fundamental na luta pela Lei da Psicologia na Educação Básica, com a derrubada do Veto nº 37/2019. Posicionou-se firmemente contra a PEC 108/2019.</li>
+                    </ul>
+
+                    <h4>Legado e Impacto Geral</h4>
+                     <p>A gestão de Eduardo Moita foi um período de fundamentação. Seus principais legados incluem a <strong>sustentabilidade financeira</strong> que preparou o conselho para crises futuras, a <strong>descentralização</strong> com o Conselho Itinerante, a forte <strong>advocacia legislativa</strong> (30 horas e psicologia na educação), e a <strong>modernização administrativa</strong> que pavimentou o caminho para a transformação digital do conselho.</p>
+
+                </div>
+                
+                <div class="analysis-subsection">
+                    <h3 class="chart-title" style="color: var(--primary-red);">Principais Problemas e Desafios da Gestão</h3>
+                    <p>A gestão de Eduardo Moita, embora marcada por avanços, também enfrentou desafios específicos, principalmente de natureza financeira e administrativa.</p>
+                    
+                    <h4>Inadimplência Crônica e "Frustração na Arrecadação"</h4>
+                    <p>O principal desafio foi a dificuldade recorrente em atingir as metas de arrecadação de anuidades. Isso gerou déficits orçamentários em 2016, 2017 e 2018, que, embora absorvidos pelo patrimônio acumulado, indicam um risco financeiro constante.</p>
+                    
+                    <h4>Recursos Humanos e Operacionais</h4>
+                    <p>Riscos anuais mapeados indicavam a "falta de pessoal técnico para analisar processos éticos" e a "falta de recursos para custear fiscalizações e manutenção", apontando limitações que poderiam impactar atividades essenciais do Conselho.</p>
+                    
+                    <h4>Morosidade em Processos Éticos</h4>
+                    <p>A falta de pessoal técnico contratado para a análise de processos éticos representava um risco de "prejuízo à imagem e paralisação dos processos". Embora a gestão tenha realizado concurso, a demanda pode ter superado a capacidade instalada.</p>
+                </div>
+
+            </section>
         </div>
     </main>
 
@@ -1233,6 +1391,7 @@
             <p>Dashboard Analítico - Gestão Eduardo Jasson Loureiro Muniz Moita</p>
             <p>Conselho Regional de Psicologia da 21ª Região - Piauí</p>
             <p class="footer-note">Dados compilados de Relatórios de Gestão e Balanços Patrimoniais (2015-2023)</p>
+            <p class="footer-note">Trabalho realizado por Cintia, Edinaldo e Nívea</p>
         </div>
     </footer>
 
@@ -1247,16 +1406,13 @@
                 
                 navLinks.forEach((link) => link.classList.remove('active'));
                 
-                // Ensure there is a corresponding nav link before adding active class
                 const activeLink = document.querySelector(`.nav-link[href="#${sections[index].id}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
                 }
             }
 
-            // Initial call
             changeActiveLink();
-
             window.addEventListener('scroll', changeActiveLink);
 
             navLinks.forEach(link => {
@@ -1267,7 +1423,6 @@
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
-                        // Temporarily remove scroll listener to prevent conflict
                         window.removeEventListener('scroll', changeActiveLink);
                         
                         navLinks.forEach(l => l.classList.remove('active'));
@@ -1278,7 +1433,6 @@
                             block: 'start'
                         });
 
-                        // Re-add scroll listener after scrolling finishes
                         setTimeout(() => {
                             window.addEventListener('scroll', changeActiveLink);
                         }, 1000);

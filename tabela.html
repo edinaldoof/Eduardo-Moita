@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Analítico - Gestão Eduardo Moita | CRP-21ª (2015-2019)</title>
+    <title>Dashboard Analítico Responsivo - Gestão Eduardo Moita | CRP-21ª (2015-2019)</title>
     <style>
         * {
             margin: 0;
@@ -35,6 +35,10 @@
             --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -166,6 +170,21 @@
         main {
             padding: 50px 0;
         }
+        
+        section {
+            display: block;
+            margin-bottom: 50px;
+        }
+        
+        .section-title, .insights-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
         /* Key Insights Section */
         .insights-section {
@@ -173,7 +192,6 @@
             padding: 40px;
             border-radius: 16px;
             box-shadow: var(--shadow-md);
-            margin-bottom: 50px;
             position: relative;
             overflow: hidden;
         }
@@ -186,17 +204,7 @@
             font-size: 200px;
             opacity: 0.05;
         }
-
-        .insights-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
+        
         .insights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -235,15 +243,10 @@
         }
 
         /* Stats Section */
-        .stats-section {
-            margin-bottom: 50px;
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-bottom: 50px;
         }
 
         .stat-card {
@@ -263,22 +266,17 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
-        }
-
-        .stat-card.green::after {
-            background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%);
-        }
-
-        .stat-card.orange::after {
-            background: linear-gradient(90deg, var(--secondary-orange) 0%, var(--primary-orange) 100%);
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
-
+        
+        .stat-card.blue::after { background: linear-gradient(90deg, var(--secondary-blue) 0%, var(--primary-blue) 100%); }
+        .stat-card.green::after { background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%); }
+        .stat-card.orange::after { background: linear-gradient(90deg, var(--secondary-orange) 0%, var(--primary-orange) 100%); }
+        
         .stat-icon {
             width: 60px;
             height: 60px;
@@ -290,20 +288,9 @@
             font-size: 28px;
         }
 
-        .stat-icon.blue {
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-        }
-
-        .stat-icon.green {
-            background-color: var(--light-green);
-            color: var(--primary-green);
-        }
-
-        .stat-icon.orange {
-            background-color: var(--light-orange);
-            color: var(--primary-orange);
-        }
+        .stat-icon.blue { background-color: var(--light-blue); color: var(--primary-blue); }
+        .stat-icon.green { background-color: var(--light-green); color: var(--primary-green); }
+        .stat-icon.orange { background-color: var(--light-orange); color: var(--primary-orange); }
 
         .stat-value {
             font-size: 2.2rem;
@@ -332,17 +319,6 @@
             padding: 50px;
             border-radius: 16px;
             box-shadow: var(--shadow);
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
         .timeline {
@@ -363,6 +339,9 @@
         .timeline-item {
             position: relative;
             margin-bottom: 50px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-item::before {
@@ -462,7 +441,6 @@
 
         /* Charts Section */
         .charts-section {
-            margin-top: 50px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
             gap: 30px;
@@ -488,17 +466,7 @@
             margin-top: -20px;
             margin-bottom: 30px;
         }
-
-        .bar-chart {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            height: 300px;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--gray-200);
-            position: relative;
-        }
-
+        
         .bar-chart-wrapper {
             overflow-x: auto;
             padding-bottom: 10px;
@@ -511,7 +479,8 @@
             height: 300px;
             gap: 15px;
             min-width: 700px;
-            padding: 0 20px;
+            padding: 20px;
+            border-bottom: 2px solid var(--gray-200);
         }
 
         .bar-item {
@@ -527,7 +496,6 @@
         .bar {
             width: 100%;
             max-width: 80px;
-            background: linear-gradient(to top, var(--secondary-blue), var(--primary-blue));
             border-radius: 6px 6px 0 0;
             position: relative;
             transition: all 0.3s ease;
@@ -536,23 +504,16 @@
             justify-content: center;
             min-height: 10px;
         }
-
+        
         .bar:hover {
             opacity: 0.85;
             transform: scaleY(1.02);
         }
-
-        .bar.secondary {
-            background: linear-gradient(to top, #e5e7eb, #9ca3af);
-        }
-
-        .bar.green {
-            background: linear-gradient(to top, var(--secondary-green), var(--primary-green));
-        }
-
-        .bar.red {
-            background: linear-gradient(to top, var(--secondary-red), var(--primary-red));
-        }
+        
+        .bar.primary { background: linear-gradient(to top, var(--secondary-blue), var(--primary-blue)); }
+        .bar.secondary { background: linear-gradient(to top, #e5e7eb, #9ca3af); }
+        .bar.green { background: linear-gradient(to top, var(--secondary-green), var(--primary-green)); }
+        .bar.red { background: linear-gradient(to top, var(--secondary-red), var(--primary-red)); }
 
         .bar-value {
             position: absolute;
@@ -607,10 +568,6 @@
         }
 
         /* Financial Analysis Section */
-        .financial-section {
-            margin-top: 50px;
-        }
-
         .financial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -635,13 +592,8 @@
             height: 5px;
         }
 
-        .financial-card.positive::before {
-            background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%);
-        }
-
-        .financial-card.negative::before {
-            background: linear-gradient(90deg, var(--secondary-red) 0%, var(--primary-red) 100%);
-        }
+        .financial-card.positive::before { background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%); }
+        .financial-card.negative::before { background: linear-gradient(90deg, var(--secondary-red) 0%, var(--primary-red) 100%); }
 
         .financial-card h3 {
             font-size: 1.2rem;
@@ -661,29 +613,12 @@
             border-bottom: none;
         }
 
-        .financial-label {
-            color: var(--gray-700);
-            font-size: 0.95rem;
-        }
-
-        .financial-value {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .financial-value.positive {
-            color: var(--primary-green);
-        }
-
-        .financial-value.negative {
-            color: var(--primary-red);
-        }
+        .financial-label { color: var(--gray-700); font-size: 0.95rem; }
+        .financial-value { font-weight: 600; font-size: 1.1rem; }
+        .financial-value.positive { color: var(--primary-green); }
+        .financial-value.negative { color: var(--primary-red); }
 
         /* Achievement Badges */
-        .achievements-section {
-            margin-top: 50px;
-        }
-
         .achievements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -735,20 +670,9 @@
             flex-shrink: 0;
         }
 
-        .achievement-icon.blue {
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-        }
-
-        .achievement-icon.green {
-            background-color: var(--light-green);
-            color: var(--primary-green);
-        }
-
-        .achievement-icon.orange {
-            background-color: var(--light-orange);
-            color: var(--primary-orange);
-        }
+        .achievement-icon.blue { background-color: var(--light-blue); color: var(--primary-blue); }
+        .achievement-icon.green { background-color: var(--light-green); color: var(--primary-green); }
+        .achievement-icon.orange { background-color: var(--light-orange); color: var(--primary-orange); }
 
         .achievement-content h3 {
             font-size: 1.2rem;
@@ -801,28 +725,105 @@
             font-size: 0.9rem;
             margin-top: 20px;
         }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-title h1 {
-                font-size: 1.8rem;
-            }
+        .stat-card, .event-card, .achievement-card, .insight-card {
+            animation: fadeIn 0.6s ease-out;
+        }
 
-            .header-periods {
-                flex-direction: row;
-                overflow-x: auto;
-                padding-bottom: 10px;
-            }
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        .text-muted { color: var(--gray-600); font-size: 0.9rem; }
 
-            .period-card {
-                min-width: 250px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
+        /* ==========================================================================
+           RESPONSIVE DESIGN - IMPROVED
+           ========================================================================== */
+        
+        /* For large tablets and small desktops */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1100px;
+                padding: 0 25px;
             }
 
             .charts-section {
+                /* Change from auto-fit to a single column earlier to prevent squishing */
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .financial-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        /* For tablets */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            .header-periods {
+                flex-direction: row;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 15px;
+                scrollbar-width: thin; /* Firefox */
+                scrollbar-color: var(--secondary-blue) var(--primary-blue);
+            }
+            
+            .header-periods::-webkit-scrollbar { height: 5px; }
+            .header-periods::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); }
+            .header-periods::-webkit-scrollbar-thumb { background-color: var(--secondary-blue); border-radius: 10px; }
+
+            .period-card {
+                flex-shrink: 0;
+                min-width: 260px;
+            }
+
+            .insights-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .stats-grid {
+                /* Use 2 columns for tablets */
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .financial-grid, .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 768px) {
+            body {
+                /* Slightly smaller base font size on mobile for better text flow */
+                font-size: 95%; 
+            }
+
+            .header-title h1 {
+                font-size: 2rem;
+            }
+
+            .header-title p {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid,
+            .insights-grid,
+            .achievements-grid,
+            .financial-grid {
+                /* All grids collapse to a single column on mobile */
                 grid-template-columns: 1fr;
             }
 
@@ -838,81 +839,59 @@
                 left: -27px;
             }
 
-            .financial-grid {
-                grid-template-columns: 1fr;
+            .timeline-section, .chart-card, .insights-section {
+                padding: 25px;
             }
 
-            .achievements-grid {
-                grid-template-columns: 1fr;
+            .section-title, .insights-title {
+                font-size: 1.8rem;
             }
-
+            
+            .bar-chart-wrapper,
+            .nav-links {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
             .nav-links {
                 justify-content: flex-start;
-                overflow-x: auto;
                 padding-bottom: 5px;
-                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Hide scrollbar but keep functionality */
+            }
+            
+            .nav-links::-webkit-scrollbar {
+                display: none; /* Hide scrollbar for Safari/Chrome */
             }
 
             .nav-link {
                 white-space: nowrap;
                 flex-shrink: 0;
             }
+        }
 
-            .insights-grid {
-                grid-template-columns: 1fr;
+        /* For very small devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
             }
 
-            .bar-chart-wrapper {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            .stat-card, .event-card, .financial-card, .achievement-card, .insight-card {
+                padding: 20px;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            
+            .achievement-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .stat-value {
+                font-size: 2rem;
             }
-        }
 
-        .stat-card,
-        .event-card,
-        .achievement-card,
-        .insight-card {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-20 {
-            margin-top: 20px;
-        }
-
-        .mb-20 {
-            margin-bottom: 20px;
-        }
-
-        .text-muted {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hide sections by default */
-        section {
-            display: block;
+            .event-title {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -956,7 +935,6 @@
 
     <main>
         <div class="container">
-            <!-- Key Insights Section -->
             <section id="insights" class="insights-section">
                 <h2 class="insights-title">💡 Principais Insights da Gestão</h2>
                 <div class="insights-grid">
@@ -987,517 +965,211 @@
                 </div>
             </section>
 
-            <!-- Stats Section -->
-            <section id="visao-geral" class="stats-section">
+            <section id="visao-geral">
                 <h2 class="section-title">📊 Visão Geral - Números da Gestão</h2>
-                
                 <div class="stats-grid">
-                    <div class="stat-card">
+                    <div class="stat-card blue">
                         <div class="stat-icon blue">💰</div>
                         <div class="stat-value">R$ 1,90M</div>
                         <div class="stat-label">Superávit Financeiro em 2019</div>
-                        <div class="stat-detail">
-                            Maior superávit até então, garantindo sustentabilidade para enfrentar a pandemia
-                        </div>
+                        <div class="stat-detail">Maior superávit até então, garantindo sustentabilidade para enfrentar a pandemia.</div>
                     </div>
-                    
                     <div class="stat-card green">
                         <div class="stat-icon green">📈</div>
                         <div class="stat-value">58,9%</div>
                         <div class="stat-label">Crescimento Recorde em 2015</div>
-                        <div class="stat-detail">
-                            Maior crescimento percentual da história do CRP-21ª (de R$ 539k para R$ 856k)
-                        </div>
+                        <div class="stat-detail">Maior crescimento percentual da história do CRP-21ª (de R$ 539k para R$ 856k).</div>
                     </div>
-                    
                     <div class="stat-card orange">
                         <div class="stat-icon orange">📊</div>
                         <div class="stat-value">196%</div>
                         <div class="stat-label">Crescimento Total da Receita</div>
-                        <div class="stat-detail">
-                            De R$ 539k (2014) para R$ 1,60M (2019) - quase triplicou a arrecadação
-                        </div>
+                        <div class="stat-detail">De R$ 539k (2014) para R$ 1,60M (2019) - quase triplicou a arrecadação.</div>
                     </div>
-                    
-                    <div class="stat-card">
+                    <div class="stat-card blue">
                         <div class="stat-icon blue">👥</div>
                         <div class="stat-value">4</div>
                         <div class="stat-label">Concursados Contratados</div>
-                        <div class="stat-detail">
-                            2 fiscais, 1 técnica contábil e 1 analista técnico-financeiro em 2018
-                        </div>
+                        <div class="stat-detail">2 fiscais, 1 técnica contábil e 1 analista técnico-financeiro em 2018.</div>
                     </div>
-                    
                     <div class="stat-card green">
                         <div class="stat-icon green">🏛️</div>
                         <div class="stat-value">5+ Anos</div>
                         <div class="stat-label">Presença na Liderança</div>
-                        <div class="stat-detail">
-                            Vice-Presidente (2013-2015) e Presidente (2015-2019)
-                        </div>
+                        <div class="stat-detail">Vice-Presidente (2013-2015) e Presidente (2015-2019).</div>
                     </div>
-                    
                     <div class="stat-card orange">
                         <div class="stat-icon orange">🎯</div>
                         <div class="stat-value">7,87%</div>
                         <div class="stat-label">Aumento Salarial em 2019</div>
-                        <div class="stat-detail">
-                            Primeiro acordo coletivo de trabalho do CRP-21ª
-                        </div>
+                        <div class="stat-detail">Primeiro acordo coletivo de trabalho do CRP-21ª.</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Timeline Section -->
             <section id="linha-tempo" class="timeline-section">
                 <h2 class="section-title">📅 Linha do Tempo dos Principais Feitos</h2>
-                
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-year">
-                            2015
-                            <span class="year-badge">Primeiro ano completo na presidência</span>
-                        </div>
+                        <div class="timeline-year">2015<span class="year-badge">Primeiro ano completo na presidência</span></div>
                         <div class="timeline-events">
                             <div class="event-card">
                                 <span class="event-category">Gestão Financeira</span>
                                 <div class="event-title">Crescimento Recorde na Arrecadação</div>
-                                <div class="event-description">
-                                    A receita orçamentária saltou de R$ 539.006,58 (2014) para R$ 856.641,46, um crescimento de 58,9% - o maior crescimento percentual da história do CRP-21ª.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Consolidação financeira do conselho recém-desmembrado. Demonstrou capacidade de gestão e estabeleceu base sólida para investimentos futuros. Superávit de R$ 37.627,20 manteve equilíbrio.
-                                </div>
+                                <div class="event-description">A receita orçamentária saltou de R$ 539.006,58 (2014) para R$ 856.641,46, um crescimento de 58,9%.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Consolidação financeira do conselho recém-desmembrado e base para investimentos futuros.</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="timeline-item">
-                        <div class="timeline-year">
-                            2016
-                            <span class="year-badge">Modernização e estruturação</span>
-                        </div>
+                        <div class="timeline-year">2016<span class="year-badge">Modernização e estruturação</span></div>
                         <div class="timeline-events">
                             <div class="event-card">
                                 <span class="event-category">Modernização</span>
                                 <div class="event-title">Digitalização de Documentos</div>
-                                <div class="event-description">
-                                    Contratação de empresa especializada para digitalização e guarda de documentos. Otimização do acesso à informação, prevenção de desgaste e liberação de espaço físico.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Pavimentou o caminho para a renovação do site em 2021/2022, permitindo serviços online completos. Investimento visionário em modernização.
-                                </div>
+                                <div class="event-description">Contratação de empresa para digitalização e guarda de documentos, otimizando acesso à informação.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Pavimentou o caminho para a renovação do site e serviços online em 2021/2022.</div>
                             </div>
                             <div class="event-card">
                                 <span class="event-category">Recursos Humanos</span>
                                 <div class="event-title">Lançamento de Concurso Público</div>
-                                <div class="event-description">
-                                    Edital publicado para reforçar o quadro de pessoal e profissionalizar o Conselho. Receita cresceu 33,4% (R$ 1.142.303,91), mas houve "frustração na arrecadação" com déficit de R$ 461.635,92 nas anuidades.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Marco na profissionalização. Apesar do déficit orçamentário de R$ 37.627,62, manteve superávit financeiro equivalente.
-                                </div>
-                            </div>
-                            <div class="event-card">
-                                <span class="event-category">Direitos Humanos</span>
-                                <div class="event-title">Comitê de Combate à Tortura</div>
-                                <div class="event-description">
-                                    Psicólogos tomam posse como membros do Comitê de Combate à Tortura no Piauí (19/12/2016). II COREP realizado. Campanhas Janeiro Branco em múltiplas cidades.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Fortalecimento do papel social da psicologia. Maior visibilidade e relevância política do CRP-21ª.
-                                </div>
+                                <div class="event-description">Edital publicado para reforçar e profissionalizar o quadro de pessoal do Conselho.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Marco na profissionalização e estruturação do corpo técnico.</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="timeline-item">
-                        <div class="timeline-year">
-                            2017
-                            <span class="year-badge">Articulação política</span>
-                        </div>
+                        <div class="timeline-year">2017<span class="year-badge">Articulação política</span></div>
                         <div class="timeline-events">
                             <div class="event-card">
                                 <span class="event-category">Advocacia Legislativa</span>
                                 <div class="event-title">Luta Prioritária pela Jornada de 30 Horas</div>
-                                <div class="event-description">
-                                    Intensificação da batalha pela aprovação do PL 511/2017. Reuniões com parlamentares federais e estaduais. Receita cresceu apenas 4,9% devido à persistente inadimplência.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    A "luta incessante" iniciada por Moita culminou na Lei 7.889/2022, tornando o Piauí o primeiro estado com 30h para psicólogos.
-                                </div>
-                            </div>
-                            <div class="event-card">
-                                <span class="event-category">Liderança Regional</span>
-                                <div class="event-title">Coordenação do Fórum dos Conselhos</div>
-                                <div class="event-description">
-                                    Eduardo Moita lidera o Fórum dos Conselhos Regionais e Profissões. Destaque contra o EAD em psicologia e discussão sobre inadimplência nos conselhos.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Aumento do peso político regional. Déficit orçamentário de R$ 105.355,09, mas superávit financeiro de R$ 12.844,89 mantido.
-                                </div>
+                                <div class="event-description">Intensificação da batalha pela aprovação do PL 511/2017 com reuniões parlamentares.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> A luta iniciada culminou na Lei 7.889/2022, tornando o Piauí o primeiro estado com 30h.</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="timeline-item">
-                        <div class="timeline-year">
-                            2018
-                            <span class="year-badge">Descentralização e fortalecimento</span>
-                        </div>
+                        <div class="timeline-year">2018<span class="year-badge">Descentralização e fortalecimento</span></div>
                         <div class="timeline-events">
                             <div class="event-card">
                                 <span class="event-category">Inovação</span>
                                 <div class="event-title">Início do Conselho Itinerante</div>
-                                <div class="event-description">
-                                    Projeto pioneiro leva serviços a Parnaíba (14-16/03) e Floriano (29/08). Inscrições, transferências, negociações e orientações no interior. COF participou ativamente.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Tornou-se pilar contínuo do CRP-21ª. Ampliado com biometria e mais cidades em gestões futuras. Modelo de sucesso.
-                                </div>
+                                <div class="event-description">Projeto pioneiro leva serviços a Parnaíba e Floriano, aproximando o conselho do interior.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Tornou-se pilar contínuo do CRP-21ª, ampliado com mais serviços nas gestões futuras.</div>
                             </div>
-                            <div class="event-card">
+                             <div class="event-card">
                                 <span class="event-category">Recursos Humanos</span>
                                 <div class="event-title">Contratação de 4 Concursados</div>
-                                <div class="event-description">
-                                    2 fiscais, 1 técnica em contabilidade e 1 analista técnico-financeiro. Receita cresceu 12,6% (R$ 1.350.083,50). Repasse ao CFP aumentou 16%.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Reforço operacional crucial. Déficit de R$ 149.687,67 absorvido pelo patrimônio acumulado. Base para eficiência futura.
-                                </div>
-                            </div>
-                            <div class="event-card">
-                                <span class="event-category">Políticas Públicas</span>
-                                <div class="event-title">Defesa da Psicologia do Trânsito</div>
-                                <div class="event-description">
-                                    Reunião com Desembargador Ricardo Gentil (08/03) sobre avaliação psicológica em concursos com porte de arma. Encontro com diretor do Denatran (19/07) sobre CNH.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Luta contra PL 3267/19 continuou em 2020. Defesa permanente da avaliação psicológica periódica no trânsito.
-                                </div>
+                                <div class="event-description">Posse de 2 fiscais, 1 técnica em contabilidade e 1 analista técnico-financeiro.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Reforço operacional crucial para a eficiência da fiscalização e gestão financeira.</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="timeline-item">
-                        <div class="timeline-year">
-                            2019
-                            <span class="year-badge">Consolidação e legado</span>
-                        </div>
+                        <div class="timeline-year">2019<span class="year-badge">Consolidação e legado</span></div>
                         <div class="timeline-events">
                             <div class="event-card">
                                 <span class="event-category">Gestão Financeira</span>
                                 <div class="event-title">Superávit Financeiro Histórico</div>
-                                <div class="event-description">
-                                    Alcançou superávit de R$ 1.904.761,69 - o maior até então. Receita executada de R$ 1.596.313,12 (80% do previsto). Setor de cobrança intensificou esforços.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Reserva crucial para enfrentar a pandemia em 2020. Demonstrou capacidade de gestão austera e estratégica.
-                                </div>
+                                <div class="event-description">Alcançou superávit de R$ 1.904.761,69, o maior até então, com receita de R$ 1,6 milhão.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Reserva crucial que garantiu a estabilidade do conselho durante a pandemia de 2020.</div>
                             </div>
                             <div class="event-card">
                                 <span class="event-category">Valorização Profissional</span>
                                 <div class="event-title">Primeiro Acordo Coletivo de Trabalho</div>
-                                <div class="event-description">
-                                    Assinatura histórica com aumento de 7,87% na remuneração. Custos com pessoal aumentaram, mas dentro do planejado. Motivação da equipe.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Marco na valorização dos colaboradores. Estabeleceu precedente para negociações futuras.
-                                </div>
+                                <div class="event-description">Assinatura histórica com aumento de 7,87% na remuneração dos colaboradores.</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Marco na valorização da equipe e precedente para negociações futuras.</div>
                             </div>
                             <div class="event-card">
                                 <span class="event-category">Conquista Legislativa</span>
                                 <div class="event-title">Derrubada do Veto nº 37/2019</div>
-                                <div class="event-description">
-                                    Vitória crucial para inclusão de psicólogos e assistentes sociais na educação básica (Lei 13.935/2019). Veto presidencial derrubado após mobilização.
-                                </div>
-                                <div class="event-impact">
-                                    <span class="impact-label">Impacto:</span> 
-                                    Abriu caminho para concursos públicos em Teresina (2022). Ampliação do mercado de trabalho para psicólogos.
-                                </div>
+                                <div class="event-description">Vitória para inclusão de psicólogos e assistentes sociais na educação básica (Lei 13.935/2019).</div>
+                                <div class="event-impact"><span class="impact-label">Impacto:</span> Abriu caminho para concursos públicos e ampliação do mercado de trabalho.</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Charts Section -->
             <section id="financeiro" class="charts-section">
                 <div class="chart-card">
                     <h3 class="chart-title">Evolução da Receita Arrecadada (em R$ milhões)</h3>
                     <p class="chart-subtitle">Receita efetivamente arrecadada durante as gestões</p>
                     <div class="bar-chart-wrapper">
                         <div class="bar-chart-container">
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 27%;">
-                                    <span class="bar-value">0,54</span>
-                                </div>
-                                <span class="bar-label">2014</span>
-                                <span class="bar-sublabel">Pré-Moita</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 43%;">
-                                    <span class="bar-value">0,86</span>
-                                </div>
-                                <span class="bar-label">2015</span>
-                                <span class="bar-sublabel">Moita</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 57%;">
-                                    <span class="bar-value">1,14</span>
-                                </div>
-                                <span class="bar-label">2016</span>
-                                <span class="bar-sublabel">Moita</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 60%;">
-                                    <span class="bar-value">1,20</span>
-                                </div>
-                                <span class="bar-label">2017</span>
-                                <span class="bar-sublabel">Moita</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 68%;">
-                                    <span class="bar-value">1,35</span>
-                                </div>
-                                <span class="bar-label">2018</span>
-                                <span class="bar-sublabel">Moita</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar" style="height: 80%;">
-                                    <span class="bar-value">1,60</span>
-                                </div>
-                                <span class="bar-label">2019</span>
-                                <span class="bar-sublabel">Moita</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 70%;">
-                                    <span class="bar-value">1,41</span>
-                                </div>
-                                <span class="bar-label">2020</span>
-                                <span class="bar-sublabel">J. Maia</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 5%; min-height: 20px;">
-                                    <span class="bar-value" style="font-size: 0.8rem;">N/D</span>
-                                </div>
-                                <span class="bar-label">2021</span>
-                                <span class="bar-sublabel">J. Maia</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 5%; min-height: 20px;">
-                                    <span class="bar-value" style="font-size: 0.8rem;">N/D</span>
-                                </div>
-                                <span class="bar-label">2022</span>
-                                <span class="bar-sublabel">Tourinho</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 98%;">
-                                    <span class="bar-value">1,95</span>
-                                </div>
-                                <span class="bar-label">2023</span>
-                                <span class="bar-sublabel">Tourinho</span>
-                            </div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 27%;"><span class="bar-value">0,54</span></div><span class="bar-label">2014</span><span class="bar-sublabel">Pré-Moita</span></div>
+                            <div class="bar-item"><div class="bar primary" style="height: 43%;"><span class="bar-value">0,86</span></div><span class="bar-label">2015</span><span class="bar-sublabel">Moita</span></div>
+                            <div class="bar-item"><div class="bar primary" style="height: 57%;"><span class="bar-value">1,14</span></div><span class="bar-label">2016</span><span class="bar-sublabel">Moita</span></div>
+                            <div class="bar-item"><div class="bar primary" style="height: 60%;"><span class="bar-value">1,20</span></div><span class="bar-label">2017</span><span class="bar-sublabel">Moita</span></div>
+                            <div class="bar-item"><div class="bar primary" style="height: 68%;"><span class="bar-value">1,35</span></div><span class="bar-label">2018</span><span class="bar-sublabel">Moita</span></div>
+                            <div class="bar-item"><div class="bar primary" style="height: 80%;"><span class="bar-value">1,60</span></div><span class="bar-label">2019</span><span class="bar-sublabel">Moita</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 70%;"><span class="bar-value">1,41</span></div><span class="bar-label">2020</span><span class="bar-sublabel">J. Maia</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 5%; min-height: 20px;"><span class="bar-value" style="font-size: 0.8rem;">N/D</span></div><span class="bar-label">2021</span><span class="bar-sublabel">J. Maia</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 5%; min-height: 20px;"><span class="bar-value" style="font-size: 0.8rem;">N/D</span></div><span class="bar-label">2022</span><span class="bar-sublabel">Tourinho</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 98%;"><span class="bar-value">1,95</span></div><span class="bar-label">2023</span><span class="bar-sublabel">Tourinho</span></div>
                         </div>
                     </div>
                     <div class="chart-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(to top, var(--secondary-blue), var(--primary-blue));"></div>
-                            <span class="legend-text">Gestão Eduardo Moita</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(to top, #e5e7eb, #9ca3af);"></div>
-                            <span class="legend-text">Outras Gestões</span>
-                        </div>
+                        <div class="legend-item"><div class="legend-color" style="background: linear-gradient(to top, var(--secondary-blue), var(--primary-blue));"></div><span class="legend-text">Gestão Eduardo Moita</span></div>
+                        <div class="legend-item"><div class="legend-color" style="background: linear-gradient(to top, #e5e7eb, #9ca3af);"></div><span class="legend-text">Outras Gestões</span></div>
                     </div>
                 </div>
-
                 <div class="chart-card">
                     <h3 class="chart-title">Crescimento Percentual Anual da Receita</h3>
                     <p class="chart-subtitle">Variação percentual em relação ao ano anterior</p>
                     <div class="bar-chart-wrapper">
                         <div class="bar-chart-container">
-                            <div class="bar-item">
-                                <div class="bar green" style="height: 90%;">
-                                    <span class="bar-value">58,9%</span>
-                                </div>
-                                <span class="bar-label">2015</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar green" style="height: 55%;">
-                                    <span class="bar-value">33,4%</span>
-                                </div>
-                                <span class="bar-label">2016</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar green" style="height: 10%;">
-                                    <span class="bar-value">4,9%</span>
-                                </div>
-                                <span class="bar-label">2017</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar green" style="height: 22%;">
-                                    <span class="bar-value">12,6%</span>
-                                </div>
-                                <span class="bar-label">2018</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar green" style="height: 30%;">
-                                    <span class="bar-value">18,2%</span>
-                                </div>
-                                <span class="bar-label">2019</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar red" style="height: 20%; min-height: 40px;">
-                                    <span class="bar-value" style="color: white;">-11,8%</span>
-                                </div>
-                                <span class="bar-label">2020*</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 5%; min-height: 20px;">
-                                    <span class="bar-value" style="font-size: 0.8rem;">N/D</span>
-                                </div>
-                                <span class="bar-label">2021</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 5%; min-height: 20px;">
-                                    <span class="bar-value" style="font-size: 0.8rem;">N/D</span>
-                                </div>
-                                <span class="bar-label">2022</span>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar secondary" style="height: 5%; min-height: 20px;">
-                                    <span class="bar-value" style="font-size: 0.8rem;">38,3%**</span>
-                                </div>
-                                <span class="bar-label">2023</span>
-                            </div>
+                            <div class="bar-item"><div class="bar green" style="height: 90%;"><span class="bar-value">58,9%</span></div><span class="bar-label">2015</span></div>
+                            <div class="bar-item"><div class="bar green" style="height: 55%;"><span class="bar-value">33,4%</span></div><span class="bar-label">2016</span></div>
+                            <div class="bar-item"><div class="bar green" style="height: 10%;"><span class="bar-value">4,9%</span></div><span class="bar-label">2017</span></div>
+                            <div class="bar-item"><div class="bar green" style="height: 22%;"><span class="bar-value">12,6%</span></div><span class="bar-label">2018</span></div>
+                            <div class="bar-item"><div class="bar green" style="height: 30%;"><span class="bar-value">18,2%</span></div><span class="bar-label">2019</span></div>
+                            <div class="bar-item"><div class="bar red" style="height: 20%; min-height: 40px;"><span class="bar-value" style="color: white;">-11,8%</span></div><span class="bar-label">2020*</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 5%; min-height: 20px;"><span class="bar-value" style="font-size: 0.8rem;">N/D</span></div><span class="bar-label">2021</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 5%; min-height: 20px;"><span class="bar-value" style="font-size: 0.8rem;">N/D</span></div><span class="bar-label">2022</span></div>
+                            <div class="bar-item"><div class="bar secondary" style="height: 5%; min-height: 20px;"><span class="bar-value" style="font-size: 0.8rem;">38,3%**</span></div><span class="bar-label">2023</span></div>
                         </div>
                     </div>
                     <div class="chart-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(to top, var(--secondary-green), var(--primary-green));"></div>
-                            <span class="legend-text">Crescimento Positivo</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(to top, var(--secondary-red), var(--primary-red));"></div>
-                            <span class="legend-text">Crescimento Negativo</span>
-                        </div>
+                        <div class="legend-item"><div class="legend-color" style="background: linear-gradient(to top, var(--secondary-green), var(--primary-green));"></div><span class="legend-text">Crescimento Positivo</span></div>
+                        <div class="legend-item"><div class="legend-color" style="background: linear-gradient(to top, var(--secondary-red), var(--primary-red));"></div><span class="legend-text">Crescimento Negativo</span></div>
                     </div>
-                    <p class="text-center text-muted mt-20">
-                        *2020: Impacto da pandemia COVID-19 | **2023: Estimado com base em 2020 | N/D: Dados não disponíveis
-                    </p>
+                    <p class="text-center text-muted mt-20">*Impacto da pandemia | **Estimado com base em 2020 | N/D: Dados não disponíveis</p>
                 </div>
             </section>
-
-            <!-- Financial Analysis Section -->
+            
             <section class="financial-section">
                 <h2 class="section-title">💹 Análise Financeira Detalhada</h2>
                 <div class="financial-grid">
                     <div class="financial-card positive">
                         <h3>Superávit/Déficit Orçamentário</h3>
-                        <div class="financial-item">
-                            <span class="financial-label">2015</span>
-                            <span class="financial-value positive">+ R$ 94.143,74</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2016</span>
-                            <span class="financial-value negative">- R$ 37.627,62</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2017</span>
-                            <span class="financial-value negative">- R$ 105.355,09</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2018</span>
-                            <span class="financial-value negative">- R$ 149.687,67</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2019</span>
-                            <span class="financial-value positive">+ Equilibrado</span>
-                        </div>
+                        <div class="financial-item"><span class="financial-label">2015</span><span class="financial-value positive">+ R$ 94.143,74</span></div>
+                        <div class="financial-item"><span class="financial-label">2016</span><span class="financial-value negative">- R$ 37.627,62</span></div>
+                        <div class="financial-item"><span class="financial-label">2017</span><span class="financial-value negative">- R$ 105.355,09</span></div>
+                        <div class="financial-item"><span class="financial-label">2018</span><span class="financial-value negative">- R$ 149.687,67</span></div>
+                        <div class="financial-item"><span class="financial-label">2019</span><span class="financial-value positive">+ Equilibrado</span></div>
                     </div>
                     <div class="financial-card positive">
                         <h3>Superávit Financeiro Acumulado</h3>
-                        <div class="financial-item">
-                            <span class="financial-label">2014 (Base)</span>
-                            <span class="financial-value positive">R$ 564.908,41</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2015</span>
-                            <span class="financial-value positive">R$ 37.627,20</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2016</span>
-                            <span class="financial-value positive">R$ 37.627,62</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2017</span>
-                            <span class="financial-value positive">R$ 12.844,89</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2018</span>
-                            <span class="financial-value negative">- R$ 210.310,06</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2019</span>
-                            <span class="financial-value positive">R$ 1.904.761,69</span>
-                        </div>
+                        <div class="financial-item"><span class="financial-label">2014 (Base)</span><span class="financial-value positive">R$ 564.908,41</span></div>
+                        <div class="financial-item"><span class="financial-label">2015</span><span class="financial-value positive">R$ 37.627,20</span></div>
+                        <div class="financial-item"><span class="financial-label">2016</span><span class="financial-value positive">R$ 37.627,62</span></div>
+                        <div class="financial-item"><span class="financial-label">2017</span><span class="financial-value positive">R$ 12.844,89</span></div>
+                        <div class="financial-item"><span class="financial-label">2018</span><span class="financial-value negative">- R$ 210.310,06</span></div>
+                        <div class="financial-item"><span class="financial-label">2019</span><span class="financial-value positive">R$ 1.904.761,69</span></div>
                     </div>
                     <div class="financial-card negative">
                         <h3>Inadimplência e Frustração</h3>
-                        <div class="financial-item">
-                            <span class="financial-label">2016</span>
-                            <span class="financial-value negative">- R$ 461.635,92</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2017</span>
-                            <span class="financial-value negative">- R$ 866.429,93</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2018</span>
-                            <span class="financial-value negative">- R$ 1.010.734,00</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2019</span>
-                            <span class="financial-value">20% não arrecadado</span>
-                        </div>
-                        <div class="financial-item">
-                            <span class="financial-label">2023 (Acumulado)</span>
-                            <span class="financial-value negative">- R$ 2.516.470,77</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="insights-section mt-20">
-                    <h3 class="chart-title">📊 Principais Insights Financeiros</h3>
-                    <div class="insights-grid">
-                        <div class="insight-card">
-                            <h4>Estratégia de Gestão</h4>
-                            <p>Mesmo com déficits orçamentários em 2016-2018, Moita manteve o equilíbrio usando o patrimônio acumulado de forma estratégica, sem comprometer operações.</p>
-                        </div>
-                        <div class="insight-card">
-                            <h4>Crescimento Sustentável</h4>
-                            <p>A receita quase triplicou (196%) durante a gestão, saindo de R$ 539 mil (2014) para R$ 1,60 milhão (2019), com crescimento médio anual de 24%.</p>
-                        </div>
-                        <div class="insight-card">
-                            <h4>Desafio Persistente</h4>
-                            <p>A inadimplência foi o maior desafio, crescendo de R$ 461 mil (2016) para mais de R$ 1 milhão (2018), exigindo intensificação da cobrança amigável.</p>
-                        </div>
+                        <div class="financial-item"><span class="financial-label">2016</span><span class="financial-value negative">- R$ 461.635,92</span></div>
+                        <div class="financial-item"><span class="financial-label">2017</span><span class="financial-value negative">- R$ 866.429,93</span></div>
+                        <div class="financial-item"><span class="financial-label">2018</span><span class="financial-value negative">- R$ 1.010.734,00</span></div>
+                        <div class="financial-item"><span class="financial-label">2019</span><span class="financial-value">20% não arrecadado</span></div>
+                        <div class="financial-item"><span class="financial-label">2023 (Acum.)</span><span class="financial-value negative">- R$ 2.516.470,77</span></div>
                     </div>
                 </div>
             </section>
 
-            <!-- Achievements Section -->
             <section id="conquistas" class="achievements-section">
                 <h2 class="section-title">🏆 Principais Legados e Conquistas</h2>
                 <div class="achievements-grid">
@@ -1505,82 +1177,46 @@
                         <div class="achievement-icon blue">💼</div>
                         <div class="achievement-content">
                             <h3>Fortalecimento Institucional</h3>
-                            <p>Modernização administrativa através da digitalização de documentos (2016) e profissionalização com concurso público, resultando em 4 contratações estratégicas (2018).</p>
-                            <div class="achievement-metric">
-                                <div class="metric-label">Impacto medido:</div>
-                                <div class="metric-value">Serviços online completos em 2021-2022</div>
-                            </div>
+                            <p>Modernização com digitalização de documentos (2016) e profissionalização com 4 contratações estratégicas via concurso (2018).</p>
+                            <div class="achievement-metric"><div class="metric-label">Impacto:</div><div class="metric-value">Base para serviços online em 2021-2022</div></div>
                         </div>
                     </div>
                     <div class="achievement-card">
                         <div class="achievement-icon green">📊</div>
                         <div class="achievement-content">
                             <h3>Gestão Financeira Excepcional</h3>
-                            <p>Transformou receita de R$ 539 mil (2014) em R$ 1,60 milhão (2019). Superávit histórico de R$ 1,9 milhão garantiu sustentabilidade durante a pandemia.</p>
-                            <div class="achievement-metric">
-                                <div class="metric-label">Crescimento total:</div>
-                                <div class="metric-value">196% em 5 anos</div>
-                            </div>
+                            <p>Transformou a receita de R$ 539 mil para R$ 1,60 milhão e deixou um superávit histórico de R$ 1,9 milhão.</p>
+                            <div class="achievement-metric"><div class="metric-label">Crescimento total:</div><div class="metric-value">196% em 5 anos</div></div>
                         </div>
                     </div>
                     <div class="achievement-card">
                         <div class="achievement-icon orange">🚌</div>
                         <div class="achievement-content">
                             <h3>Conselho Itinerante Pioneiro</h3>
-                            <p>Projeto iniciado em 2018 levou serviços a Parnaíba e Floriano. Tornou-se modelo expandido com biometria e mais cidades nas gestões seguintes.</p>
-                            <div class="achievement-metric">
-                                <div class="metric-label">Evolução:</div>
-                                <div class="metric-value">De 2 para 5+ cidades atendidas</div>
-                            </div>
+                            <p>Iniciado em 2018, tornou-se modelo de descentralização, expandido com mais cidades e serviços nas gestões seguintes.</p>
+                            <div class="achievement-metric"><div class="metric-label">Evolução:</div><div class="metric-value">De 2 para 5+ cidades atendidas</div></div>
                         </div>
                     </div>
                     <div class="achievement-card">
                         <div class="achievement-icon green">⚖️</div>
                         <div class="achievement-content">
                             <h3>Advocacia Legislativa Histórica</h3>
-                            <p>Luta prioritária pelas 30 horas resultou na Lei 7.889/2022 - Piauí primeiro estado. Derrubada do veto em 2019 abriu caminho para psicólogos na educação.</p>
-                            <div class="achievement-metric">
-                                <div class="metric-label">Conquistas concretas:</div>
-                                <div class="metric-value">2 leis aprovadas + concursos realizados</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-card">
-                        <div class="achievement-icon blue">🤝</div>
-                        <div class="achievement-content">
-                            <h3>Articulação Política Regional</h3>
-                            <p>Coordenação do Fórum dos Conselhos (2017), participação no Comitê de Combate à Tortura e defesa contra EAD em psicologia. Peso político ampliado.</p>
-                            <div class="achievement-metric">
-                                <div class="metric-label">Representatividade:</div>
-                                <div class="metric-value">Liderança em fóruns regionais</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-card">
-                        <div class="achievement-icon orange">👥</div>
-                        <div class="achievement-content">
-                            <h3>Valorização dos Colaboradores</h3>
-                            <p>Primeiro acordo coletivo de trabalho do CRP-21ª com aumento de 7,87% (2019). Marco na relação trabalhista e motivação da equipe.</p>
-                            <div class="achievement-metric">
-                                <div class="metric-label">Precedente estabelecido:</div>
-                                <div class="metric-value">Base para negociações futuras</div>
-                            </div>
+                            <p>Luta prioritária pelas 30 horas resultou na Lei 7.889/2022. Derrubada do veto em 2019 abriu caminho para psicólogos na educação.</p>
+                            <div class="achievement-metric"><div class="metric-label">Conquistas:</div><div class="metric-value">2 leis + concursos realizados</div></div>
                         </div>
                     </div>
                 </div>
                 <div class="insights-section mt-20">
-                    <h3 class="chart-title">🌟 Análise do Legado</h3>
-                    <p class="text-center mb-20" style="font-size: 1.1rem; color: var(--gray-700);">
-                        A gestão de Eduardo Moita foi comparada a três metáforas que sintetizam seu impacto:
-                    </p>
+                    <h3 class="chart-title text-center">🌟 Análise do Legado</h3>
+                    <p class="text-center mb-20" style="font-size: 1.1rem; color: var(--gray-700);">A gestão de Eduardo Moita é sintetizada por três metáforas:</p>
                     <div class="insights-grid">
                         <div class="insight-card">
                             <h4>🚢 O Capitão Navegador</h4>
-                            <p>"Navegando em águas turbulentas de inadimplência, não apenas manteve o navio à tona, mas equipou-o com novas ferramentas e tripulantes, preparando-o para viagens mais longas."</p>
+                            <p>"Navegando em águas turbulentas de inadimplência, não apenas manteve o navio à tona, mas equipou-o com novas ferramentas, preparando-o para viagens mais longas."</p>
                         </div>
                         <div class="insight-card">
                             <h4>🌱 O Jardineiro Visionário</h4>
-                            <p>"Não apenas cuidou das plantas existentes, mas preparou o solo e plantou novas sementes, garantindo que o jardim da psicologia no Piauí continuasse a crescer e florescer."</p>
+                            <p>"Não apenas cuidou das plantas existentes, mas preparou o solo e plantou novas sementes, garantindo que o jardim da psicologia no Piauí continuasse a florescer."</p>
                         </div>
                         <div class="insight-card">
                             <h4>🏗️ O Construtor de Pontes</h4>
@@ -1601,53 +1237,51 @@
     </footer>
 
     <script>
-        // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('main section[id]');
             
-            // Remove active class from all links and add to clicked one
+            function changeActiveLink() {
+                let index = sections.length;
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+                
+                navLinks.forEach((link) => link.classList.remove('active'));
+                
+                // Ensure there is a corresponding nav link before adding active class
+                const activeLink = document.querySelector(`.nav-link[href="#${sections[index].id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+
+            // Initial call
+            changeActiveLink();
+
+            window.addEventListener('scroll', changeActiveLink);
+
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all links
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Smooth scroll to section
                     const targetId = this.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
+                        // Temporarily remove scroll listener to prevent conflict
+                        window.removeEventListener('scroll', changeActiveLink);
+                        
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
                         targetSection.scrollIntoView({
                             behavior: 'smooth',
                             block: 'start'
                         });
-                    }
-                });
-            });
-            
-            // Update active nav link on scroll
-            window.addEventListener('scroll', function() {
-                let current = '';
-                const scrollPosition = window.scrollY + 100;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        current = '#' + section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === current) {
-                        link.classList.add('active');
+
+                        // Re-add scroll listener after scrolling finishes
+                        setTimeout(() => {
+                            window.addEventListener('scroll', changeActiveLink);
+                        }, 1000);
                     }
                 });
             });
